@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+              <a href="../vistas/bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="active" href="../formularios/addDomicilio.html">Agregar Cliente</a></li>
+                <li><a href="#">Cancelar Cuenta</a></li>
+                <li><a href="../conexiones/logout.php">Logout</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <br />
+
+        <div class="row">
+            <form action="../conexiones/addCliente.php" method="POST" class="col s12">
+
+              <div class="row">
+                  <div class="input-field col s12">
+                    <input name="codigo_postal" placeholder="Ejemplo: 40000" id="codigo_postal" type="text" class="validate" required>
+                    <label for="codigo_postal">Codigo Postal</label>
+                  </div>
+                </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input name="codigo_postal" placeholder="Ejemplo: 40000" id="codigo_postal" type="text" class="validate" required>
+                  <label for="codigo_postal">Codigo Postal</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input name="provincia" placeholder="Ejemplo : Durango, DG, MX" type="text" class="validate" required> 
+                  <label for="provincia">Provincia</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input name="pais" placeholder="Ejemplo: Mexico " type="text" class="validate" required>
+                  <label for="pais">Pais</label>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+  </html>
