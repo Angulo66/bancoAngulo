@@ -30,9 +30,9 @@
             <a href="../bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="active" href="../formularios/addDomicilio.html">Agregar Cliente</a></li>
-                <li><a href="#">Cancelar Cuenta</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a class="active" href="addDomicilio.html">Agregar Cliente</a></li>
+                <li><a href="deleteCuenta.php">Cancelar Cuenta</a></li>
+                <li><a href="../conexiones/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

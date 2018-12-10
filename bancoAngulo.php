@@ -93,7 +93,7 @@
                     }
                     $result = mysqli_query($con, "SELECT * FROM `Cuentas`");
                     echo " <table class='responsive-table centered highlight'>
-                    <h4 class='center'>Lista de Clientes</h4>
+                    <h4 class='center'>Lista de Cuentas</h4>
                   <thead>
                     <tr>
                         <th scope='col'></th>
@@ -135,23 +135,23 @@
                     ?>
                 </div>
 
-                <div id="buscar_cliente" class="col s12">
-                    <form action="../procedures/buscar.php" method="GET" class="center col s3">
+                <div id="buscar_cliente" class="container col s3">
+                    <form action="" method="GET" class="center col s3">
                         <div class="input-field">
-                            <input name="id" id="search" placeholder="Buscar cliente por id" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                            <input name="id" id="search" placeholder="Buscar Cliente por ID" type="search" required>
+                            <label class="label-icon" for="search"></label>
+                            <i class="material-icons prefix">search</i>
                         </div>
                     </form>
                     <?php
                     $con = mysqli_connect("localhost", "root", "", "bancoAngulo");
-                    $id = $_GET['id'];
                     if (mysqli_connect_errno()) {
                         echo "Failed to connect to bancoAngulo: " . mysqli_connect_error();
                     }
-                    $result = mysqli_query($con, "SELECT * FROM `Clientes` WHERE cliente_id='" . $id . "'");
+                    if(isset($_GET['id'])){
+                    $result = mysqli_query($con, "SELECT * FROM `Clientes` WHERE cliente_id='" . $_GET['id'] . "'");
                     echo "<table class='responsive-table centered highlight'>
-                        <h4 class='center'>Lista de Clientes</h4>
+                        <h4 class='center'>Resultados</h4>
                         <thead>
                         <tr>
                         <th scope='col'></th>
@@ -176,28 +176,31 @@
                         echo "</tbody>";
                     }
                     echo "</table>";
+                } else {
+                    //
+                }
                     mysqli_close($con);
                     ?>
                 </div>
 
-                <div id="buscar_transacion" class="col s12">
+                <div id="buscar_transacion" class="container col s3">
                     <form method="GET" class="center col s3">
                         <div class="input-field">
-                            <input name="id" id="search" placeholder="Buscar cliente por id" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                            <input name="id" id="search" placeholder="Buscar por Numero de Transacion" type="search" required>
+                            <label class="label-icon" for="search">
+                            </label> <i class="material-icons prefix">search</i>
                         </div>
                     </form>
                     <?php
                     $con = mysqli_connect("localhost", "root", "", "bancoAngulo");
-                    $id = $_GET['id'];
                     if (mysqli_connect_errno()) {
-                        echo "Failed to connect to bancoAngulo: " . mysqli_connect_error(); 
+                        echo "Failed to connect to bancoAngulo: "; //. mysqli_connect_error(); 
                     }
-                    $result = mysqli_query($con, "SELECT * FROM `transaciones` WHERE id='" . $id . "'");
+                    if(isset($_GET['id'])){
+                    $result = mysqli_query($con, "SELECT * FROM `transaciones` WHERE id='" . $_GET['id'] . "'");
 
                     echo "<table class='responsive-table centered highlight'>
-                         <h4 class='center'>Lista de Clientes</h4>
+                         <h4 class='center'>Resultados</h4>
                          <thead>
                          <tr>
                          <th scope='col'></th>
@@ -226,6 +229,9 @@
                         echo "</tbody>";
                         }
                         echo "</table>";
+                    } else {
+                        //
+                    }
                         mysqli_close($con);
                         ?>
                 </div>
@@ -245,11 +251,11 @@
                                     <div class="card-content white-text">
                                         <?php
                                         $con = mysqli_connect("localhost", "root", "", "bancoAngulo");
-                                        $id = $_GET['getsaldo'];
                                         if (mysqli_connect_errno()) {
                                             echo "Failed to connect to bancoAngulo: " ;//. mysqli_connect_error(); 
                                         }
-                                        $result = mysqli_query($con, "SELECT `saldo_actual` FROM `Cuentas` WHERE `numero_de_cuenta`='" . $id . "'");
+                                        if(isset($_GET['getsaldo'])){
+                                        $result = mysqli_query($con, "SELECT `saldo_actual` FROM `Cuentas` WHERE `numero_de_cuenta`='" . $_GET['getsaldo'] . "'");
                                         while ($row = mysqli_fetch_array($result)) {
                                             if ($row == null){
                                                 echo "<span class='card-title'>Saldo Actual: </span>";
@@ -257,6 +263,9 @@
                                             echo "<span class='card-title'>Saldo Actual: ". $row['saldo_actual'] ." </span>";
                                             }
                                         }
+                                    } else {
+                                        //
+                                    }
                                         ?>
                                         <p></p>
                                     </div>
