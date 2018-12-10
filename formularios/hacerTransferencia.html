@@ -5,13 +5,10 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-
     <body>
-
         <nav class="nav-extended">
             <div class="nav-wrapper">
               <a href="../bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
@@ -23,44 +20,36 @@
               </ul>
             </div>
           </nav>
-
           <br />
-
         <div class="row">
-            <form action="../conexiones/addCliente.php" method="POST" class="col s12">
-
+            <form action="../conexiones/hacerTransferencia.php" method="GET" class="col s12">
+              <h5>Ingrese la Cantidad y la Cuenta hacer Transferencia</h5>
               <div class="row">
-                  <div class="input-field col s12">
-                    <input name="ciudad" placeholder="Ejemplo: Vancouver" id="ciudad" type="text" class="validate" required>
-                    <label for="ciudad">Ciudad</label>
+                  <div class="input-field col s6">
+                    <input name="cuenta1" placeholder="" type="text" class="validate" required>
+                    <i class="material-icons prefix">person</i>
+                    <label for="cuenta1">Numero de Cuenta</label>
                   </div>
                 </div>
-
               <div class="row">
-                <div class="input-field col s12">
-                  <input name="codigo_postal" placeholder="Ejemplo: 40000" id="codigo_postal" type="text" class="validate" required>
-                  <label for="codigo_postal">Codigo Postal</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="provincia" placeholder="Ejemplo : Durango, DG, MX" type="text" class="validate" required> 
-                  <label for="provincia">Provincia</label>
+                <div class="input-field col s6">
+                  <input name="cantidad" placeholder="" type="text" class="validate" required>
+                  <i class="material-icons prefix">attach_money</i>
+                  <label for="cantidad">Cantidad a Transferir</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <input name="pais" placeholder="Ejemplo: Mexico " type="text" class="validate" required>
-                  <label for="pais">Pais</label>
+                <div class="input-field col s6">
+                  <input name="cuenta2" placeholder="" type="text" class="validate" required>
+                  <i class="material-icons prefix">person</i> 
+                  <label for="cuenta2">Numero de Cuenta a Transferir</label>
                 </div>
               </div>
-              <button class="btn btn-primary" type="submit">Agregar</button>
-              <a href="../formularios/addCliente.php">Saltar Domicilio</a>
+              <button class="btn btn-primary" type="submit">Confirmar</button>
             </form>
           </div>
-
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="../js/materialize.min.js"></script>
     </body>
   </html>
+

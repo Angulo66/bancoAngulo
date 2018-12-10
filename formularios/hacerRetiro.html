@@ -5,13 +5,10 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-
     <body>
-
         <nav class="nav-extended">
             <div class="nav-wrapper">
               <a href="../bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
@@ -23,44 +20,27 @@
               </ul>
             </div>
           </nav>
-
           <br />
-
         <div class="row">
-            <form action="../conexiones/addCliente.php" method="POST" class="col s12">
-
+            <form action="../conexiones/hacerRetiro.php" method=GET class="col s12">
+                <h4>Ingrese Cantidad a Retirar</h4><br/>
               <div class="row">
                   <div class="input-field col s12">
-                    <input name="ciudad" placeholder="Ejemplo: Vancouver" id="ciudad" type="text" class="validate" required>
-                    <label for="ciudad">Ciudad</label>
+                    <input name="cuenta" placeholder="" id="ciudad" type="text" class="validate" required>
+                    <label for="cuenta">Numero de Cuenta</label>
                   </div>
                 </div>
-
               <div class="row">
                 <div class="input-field col s12">
-                  <input name="codigo_postal" placeholder="Ejemplo: 40000" id="codigo_postal" type="text" class="validate" required>
-                  <label for="codigo_postal">Codigo Postal</label>
+                  <input name="cantidad" placeholder="" id="codigo_postal" type="text" class="validate" required>
+                  <label for="cantidad">Cantidad a Retirar</label>
                 </div>
               </div>
-
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="provincia" placeholder="Ejemplo : Durango, DG, MX" type="text" class="validate" required> 
-                  <label for="provincia">Provincia</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input name="pais" placeholder="Ejemplo: Mexico " type="text" class="validate" required>
-                  <label for="pais">Pais</label>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="submit">Agregar</button>
-              <a href="../formularios/addCliente.php">Saltar Domicilio</a>
+              <button class="btn btn-primary" type="submit">Retirar</button>
             </form>
           </div>
-
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="../js/materialize.min.js"></script>
     </body>
   </html>
+

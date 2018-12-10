@@ -27,7 +27,7 @@
 
     <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a href="../vistas/bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
+            <a href="../bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="active" href="../formularios/addDomicilio.html">Agregar Cliente</a></li>
@@ -40,9 +40,7 @@
     <br />
 
     <div class="row">
-        <form action="../conexiones/addCliente02.php" method="POST" class="col s12">
-            
-            <form action="../conexiones/addCliente02.php" method="POST" class="col s12">
+        <form action="../conexiones/addCliente02.php" method="GET" class="col s12">
                 <div class="input-field col s3">
                     <select name="domicilio" required>
                       <option>Selecionar</option>
@@ -51,9 +49,9 @@
                       if (mysqli_connect_errno()) {
                         echo "Failed to connect to bancoAngulo: " . mysqli_connect_error();
                       }
-                      $result = mysqli_query($con, "SELECT ciudad FROM Domicilios WHERE 1");
+                      $result = mysqli_query($con, "SELECT * FROM Domicilios WHERE 1");
                       while ($row = mysqli_fetch_array($result)) {
-                        echo "<option for='domicilio' value='" . $row['domicilio_id'] . "'>" . $row['ciudad'] . "</option>";
+                        echo "<option for='domicilio' value=' " . $row['domicilio_id'] . " '> " . $row['ciudad'] . " </option>";
                       }
                       mysqli_close($con);
                       ?>

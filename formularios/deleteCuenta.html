@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <script>
+            $(document).ready(function(){
+                $('select').formSelect();
+              });
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="../bancoAngulo.php" class="brand-logo">Banco del Angulo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="active" href="../formularios/addDomicilio.html">Agregar Cliente</a></li>
+                <li><a href="deleteCuenta.html">Cancelar Cuenta</a></li>
+                <li><a href="../conexiones/logout.php">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br />
+
+    <div class="row">
+        <form action="../conexiones/deleteCuenta.php" method="GET" class="col s12">
+        <h3>Para Eliminar una Cuenta ingrese Numero de Cuenta</h3>
+            <div class="row">
+                <div class="input-field col s3">
+                    <input name="id" placeholder="" type="text" class="validate" required>
+                    <label for="id">Numero de Cuenta</label>
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-delete" type="submit">Eliminar
+            <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+</body>
+
+</html>
+
