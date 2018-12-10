@@ -17,17 +17,19 @@ $sql1 = "UPDATE `Cuentas` SET `saldo_actual`= `saldo_actual`- $cantidad WHERE nu
 $sql2 = "UPDATE `Cuentas` SET `saldo_actual`= `saldo_actual`+ $cantidad WHERE numero_de_cuenta = $cuenta2";
 $sql3 = "INSERT INTO `transaciones`(`numero_de_cuenta`, `cuenta_receptora`, `cantidad`, `is_summary`) 
             VALUES ($cuenta1,$cuenta2,$cantidad,1)";
-            
+
+$sql3 = "INSERT INTO `transaciones`(`numero_de_cuenta`, `cuenta_receptora`, `cantidad`, `is_summary`) 
+VALUES ($cuenta1,$cuenta2,$cantidad,1)";            
 if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
       if (mysqli_query($conn, $sql3)) {
             echo "Tranferencia Exitosa!";
-            header("refresh:3; bancoAngulo.php");
+            header("refresh:4; ../bancoAngulo.php");
       }
 } else {
       echo "Error al hacer Transferencia!";
       //echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
       //echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
-      header("refresh:3; ../formularios/addDomicilio.html");
+      header("refresh:3; ../formularios/hacerTransferencia.html");
 }
 mysqli_close($conn);
 

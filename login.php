@@ -4,13 +4,13 @@
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <div class="container col s6">
-          <img class="responsive-img" id="logo" src="../img/logo.png" style="height: 420px; 
+          <img class="responsive-img" id="logo" src="img/logo.png" style="height: 420px; 
                                                                               width: 420;"/>
           <h3><span>Banco del Angulo</span></h3>
           <h6>Inicio de sesion para empleados dados de alta</h6>
@@ -46,12 +46,15 @@
   </div>
         </div>
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>
   </html>
 
 <?php  
 
+$username = null;
+$password = null;
+ 
 $conn = mysqli_connect('localhost', 'root', '', 'bancoAngulo');
 // Check connection
 if (!$conn) {
@@ -70,9 +73,18 @@ $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $count = mysqli_num_rows($result);
 
 if ($count == 1){
+  if($username == "admin"){
+    session_start();
+    $_SESSION["authenticated"] = 'true';
+    echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
+    header("location: bancoAngulo.php");
+  } else{
   //echo "Login Credentials verified";
+  session_start();
+  $_SESSION["authenticated"] = 'true';
   echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
-  header("location: bancoAngulo.php");
+  header("location: bancoAnguloCore.php");
+  }
 } else {
   echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
   header("refresh:3;");

@@ -17,10 +17,10 @@ $saldo = $_GET['saldo'];
 $sql = "INSERT INTO `Cuentas`(`cuenta_codigo_estado`, `cuenta_tipo`, `cliente_id`, `saldo_actual`) 
 VALUES ($estado, $tipo, $cliente, $saldo)";
 if (mysqli_query($conn, $sql)) {
-      header("refresh:3; ../formularios/addCliente.php");
+      header("refresh:3; ../bancoAngulo.php");
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      header("refresh:3; ../formularios/addDomicilio.html");
+      header("refresh:3; ../formularios/addCuenta.php");
 }
 mysqli_close($conn);
 

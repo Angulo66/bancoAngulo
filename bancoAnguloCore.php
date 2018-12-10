@@ -26,12 +26,7 @@
                 <a href="#" class="brand-logo">Banco del Angulo</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="formularios/addDomicilio.html">Agregar Cliente</a></li>
-                    <li><a href="formularios/addCuenta.php">Agregar Cuenta</a></li>
-                    <li><a href="formularios/hacerRetiro.html">Retiro</a></li>
-                    <li><a href="formularios/hacerTransferencia.html">Transferencia</a></li>
-                    <li><a href="formularios/deleteCuenta.html">Cancelar Cuenta</a></li>
-                    <li><a href="conexiones/logout.php">Logout</a></li>
+                    <li><a class="disabled" href="conexiones/logout.php">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +35,6 @@
                 <ul>
                     <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#cuentas">Cuentas</a></li>
-                    <li><a href="#empleados">Empleados</a></li>
                     <li><a href="#buscar_cliente">Buscar Cliente</a></li>
                     <li><a href="#buscar_transacion">Buscar Transacion</a></li>
                     <li><a href="#ver_saldo">Consultar Saldo</a></li>
@@ -126,43 +120,6 @@
 
                         echo "<td>" . $row['cliente_id'] . "</td>";
                         echo "<td>" . $row['saldo_actual'] . "</td>";
-                        echo "</th>";
-                        echo "</tr>";
-                        echo "</tbody>";
-                    }
-                    echo "</table>";
-                    mysqli_close($con);
-                    echo "</table> ";
-                    ?>
-                </div>
-
-                <div id="empleados" class="col s12">
-                    <?php
-                    $con = mysqli_connect("localhost", "root", "", "bancoAngulo");
-                    if (mysqli_connect_errno()) {
-                        echo "Failed to connect to bancoAngulo: " . mysqli_connect_error();
-                    }
-                    $result = mysqli_query($con, "SELECT * FROM Empleados");
-
-                    echo " <table class='responsive-table centered highlight'>
-                        <h4 class='center'>Lista de Clientes</h4>
-                        <thead>
-                        <tr>
-                        <th scope='col'></th>
-                        <th scope='col'>#Id</th>
-                        <th scope='col'>#Domicilio Id</th>
-                        <th scope='col'>First Name</th>
-                        <th scope='col'>Last Name</th>
-                        </tr>
-                        </thead> ";
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo "<tbody>";
-                        echo "<tr>";
-                        echo "<th scope='row'>";
-                        echo "<td>" . $row['empleado_id'] . "</td>";
-                        echo "<td>" . $row['domicilio_id'] . "</td>";
-                        echo "<td>" . $row['first_name'] . "</td>";
-                        echo "<td>" . $row['last_name'] . "</td>";
                         echo "</th>";
                         echo "</tr>";
                         echo "</tbody>";
@@ -308,8 +265,8 @@
                                         <p></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="formularios/hacerRetiro.php">Retiro</a>
-                                        <a href="formularios/hacerTransferencia.php">Transferencia</a>
+                                        <a href="#">Retiro</a>
+                                        <a href="#">Transferencia</a>
                                     </div>
                                 </div>
                             </div>
